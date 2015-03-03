@@ -8,7 +8,7 @@ Versions:
 - '0.10'
 License: MIT License
 License-Url: https://raw.github.com/joyent/node/v0.10/LICENSE
-Vendor: www.redhat.com
+Vendor: www.feedhenry.com
 Website: http://www.feedhenry.com/
 Cartridge-Version: 0.0.22
 Compatible-Versions:
@@ -18,7 +18,7 @@ Compatible-Versions:
 - 0.0.19
 - 0.0.20
 - 0.0.21
-Cartridge-Vendor: redhat
+Cartridge-Vendor: feedhenry
 Categories:
 - embedded
 - administration
@@ -44,13 +44,14 @@ Subscribes:
     Type: NET_TCP:db:postgres
     Required: false
 Endpoints:
-- Private-IP-Name: IP
-  Private-Port-Name: PORT
-  Private-Port: 8080
-  Public-Port-Name: PROXY_PORT
+- Private-IP-Name:   REPORTER_IP
+  Private-Port-Name: REPORTER_PORT
+  Private-Port:      26380
+  Public-Port-Name:  REPORTER_PROXY_PORT
+
   Protocols:
   - http
   Mappings:
-  - Frontend: /feedhenry
-    Backend: /feedhenry
+  - Frontend: /sys/reporter
+    Backend: /sys/reporter
 Install-Build-Required: false
